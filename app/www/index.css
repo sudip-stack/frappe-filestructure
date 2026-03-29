@@ -1,0 +1,12 @@
+/* Page-specific styles for homepage */
+.hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 4rem 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+.hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+.dynamic-content { border-left: 4px solid #2563eb; }
+.interactive-section button { background: #2563eb; color: white; border: none; padding: 1rem 2rem; font-size: 1rem; border-radius: 4px; cursor: pointer; }
+.interactive-section button:hover { background: #1d4ed8; }

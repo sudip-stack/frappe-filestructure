@@ -1,0 +1,23 @@
+{% extends "templates/base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<p style="margin: 1rem 0; line-height: 1.8;">
+    Learn more about our mission and team. This page follows Frappe's architecture 
+    with separate .py (logic) and .html (template) files.
+</p>
+
+<div style="margin: 2rem 0;">
+    <h2>Our Team</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+    {% for member in team %}
+        <div style="background: #f0f0f0; padding: 1rem; border-radius: 4px;">
+            <h3>{{ member.name }}</h3>
+            <p style="color: #666;">{{ member.role }}</p>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}

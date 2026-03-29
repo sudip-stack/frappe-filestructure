@@ -1,0 +1,4 @@
+app
+www
+public
+templates

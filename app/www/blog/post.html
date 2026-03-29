@@ -1,0 +1,26 @@
+{% extends "templates/base.html" %}
+
+{% block title %}{{ post.title if post else "Post Not Found" }}{% endblock %}
+
+{% block content %}
+{% if post %}
+<article style="max-width: 800px; margin: 0 auto;">
+    <header style="margin-bottom: 2rem; border-bottom: 1px solid #ddd; padding-bottom: 1rem;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">{{ post.title }}</h1>
+        <p style="color: #666;">By {{ post.author }} | {{ post.date }}</p>
+    </header>
+    <div class="post-content" style="line-height: 1.8; font-size: 1.1rem;">
+        {{ post.content | safe }}
+    </div>
+    <footer style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd;">
+        <a href="/blog" style="color: #2563eb; text-decoration: none;">← Back to Blog</a>
+    </footer>
+</article>
+{% else %}
+<div style="text-align: center; padding: 3rem 0;">
+    <h1>Post Not Found</h1>
+    <p>The blog post you're looking for doesn't exist.</p>
+    <a href="/blog" style="color: #2563eb;">View all posts</a>
+</div>
+{% endif %}
+{% endblock %}

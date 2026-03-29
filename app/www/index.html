@@ -1,0 +1,39 @@
+{% extends "templates/base.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+<div class="hero" style="text-align: center; padding: 3rem 0;">
+    <h1 style="font-size: 3rem; margin-bottom: 1rem;">{{ title }}</h1>
+    <p style="font-size: 1.2rem; color: #666;">Built with FastAPI + Frappe Architecture</p>
+</div>
+
+<div class="dynamic-content" style="background: #f0f9ff; padding: 2rem; border-radius: 8px; margin: 2rem 0; border-left: 4px solid #2563eb;">
+    <h2>Dynamic Data from index.py</h2>
+    <p><strong>Current Time:</strong> {{ current_time }}</p>
+    <p><strong>Visitor Count:</strong> {{ visitor_count }}</p>
+    
+    <h3 style="margin-top: 1.5rem;">Featured Products:</h3>
+    <ul>
+    {% for item in featured_items %}
+        <li>{{ item.name }} - ${{ item.price }}</li>
+    {% endfor %}
+    </ul>
+</div>
+
+<div class="interactive-section" style="background: #fef3c7; padding: 2rem; border-radius: 8px; text-align: center;">
+    <h2>Interactive Section</h2>
+    <button id="index-btn" style="margin-top: 1rem; background: #2563eb; color: white; border: none; padding: 1rem 2rem; font-size: 1rem; border-radius: 4px; cursor: pointer;">Click Me!</button>
+    <p id="index-output" style="margin-top: 1rem; font-weight: bold;"></p>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+document.getElementById('index-btn')?.addEventListener('click', function() {
+    let count = parseInt(this.dataset.count || 0) + 1;
+    this.dataset.count = count;
+    document.getElementById('index-output').textContent = `Clicked ${count} time(s)!`;
+});
+</script>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "templates/base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<p style="margin: 1rem 0;">Get in touch with us!</p>
+
+<form method="POST" style="max-width: 500px;">
+    <div>
+        <label style="display: block; margin-bottom: 0.5rem;">Name</label>
+        <input type="text" name="name" placeholder="Your Name" required>
+    </div>
+    <div>
+        <label style="display: block; margin-bottom: 0.5rem;">Email</label>
+        <input type="email" name="email" placeholder="your@email.com" required>
+    </div>
+    <div>
+        <label style="display: block; margin-bottom: 0.5rem;">Message</label>
+        <textarea name="message" rows="5" placeholder="Your message..." required></textarea>
+    </div>
+    <button type="submit">Send Message</button>
+</form>
+
+{% if form_success %}
+<div class="alert alert-success" style="margin-top: 1rem;">
+    {{ form_message }}
+</div>
+{% endif %}
+{% endblock %}

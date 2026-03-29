@@ -1,0 +1,15 @@
+{% macro render_card(title, content, link=None) %}
+<div class="card">
+    <h3>{{ title }}</h3>
+    <p>{{ content }}</p>
+    {% if link %}
+    <a href="{{ link }}" class="btn">Read More</a>
+    {% endif %}
+</div>
+{% endmacro %}
+
+{% macro render_form(action, method="POST") %}
+<form action="{{ action }}" method="{{ method }}">
+    {{ caller() }}
+</form>
+{% endmacro %}
